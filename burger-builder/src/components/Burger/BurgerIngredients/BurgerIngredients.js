@@ -9,9 +9,10 @@ import './BurgerIngredient.css';
 class BurgerIngredient extends Component {
     render() {
         let ingredients = null;
-        switch (props.type) {
+        switch (this.props.type) {
             case ('bread-bottom'):
-                ingredients = <div className="BreadBottom"></div>;
+                ingredients = <div className="BreadBottom">
+                </div>;
                 break;
             case ('bread-top'):
                 ingredients = <div className="BreadTop">
