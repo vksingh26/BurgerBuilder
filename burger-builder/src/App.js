@@ -7,7 +7,7 @@ class App extends Component {
     return(
       <div>
         <Layout>
-          <h1>My Burger!!!</h1>
+          <h1>My Burger <span role="img" aria-label="Delicious">&#128523;</span><span role="img" aria-label="Love">&#128525;</span></h1>
           <BurgerBuilder />
         </Layout>
       </div>
