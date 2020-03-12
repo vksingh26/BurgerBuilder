@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Aux from '../Auxiliary/Auxiliary';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import './Layout.css';
-import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
+//import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer'; enable for mobile form
 
 class Layout  extends Component {
     state = {
@@ -24,7 +24,7 @@ class Layout  extends Component {
         return(
             <Aux>
                 <Toolbar drawerToggleClicked={this.sideDrawerToggleHandler}/>
-                <SideDrawer Open={this.state.showSideDrawer} closed={this.sideDrawerClosedHandler}/>
+                {/*<SideDrawer Open={this.state.showSideDrawer} closed={this.sideDrawerClosedHandler}/>*/}
                 <main className="MainContent">
                     {this.props.children}
                 </main>

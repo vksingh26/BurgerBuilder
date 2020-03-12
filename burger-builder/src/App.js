@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import Layout from './hoc/Layout/Layout';
 import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder';
+
+//https://burger-builder-369b1.firebaseio.com/  firebase api for project
 class App extends Component {
   render(){
     return(
