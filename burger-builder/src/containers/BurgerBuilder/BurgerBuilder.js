@@ -100,7 +100,7 @@ class BurgerBuilder extends Component {
             },
             deliveryMethod: 'fastest'
         }
-
+        
         axios.post('/orders.json', orders)
             .then(response =>{
                 console.log(response);
@@ -137,7 +137,8 @@ class BurgerBuilder extends Component {
                         ordered={this.orderHandler} />
                 </Aux>
             );
-            orderSummary = <OrderSummary ingredients={this.state.ingredients}
+            orderSummary = <OrderSummary 
+                ingredients={this.state.ingredients}
                 orderCancelled={this.orderCancelHandler}
                 orderContinued={this.orderContinuedHandler}
                 price={this.state.totalPrice}/>
