@@ -87,29 +87,17 @@ class BurgerBuilder extends Component {
     }
 
     orderContinuedHandler = () => {
-        //alert('Continue!!!');
-        this.setState({loading: true});
-        const orders = {
-            ingredients: this.state.ingredients,
-            price: this.state.totalPrice,
-            email: 'test@test.com',
-            customer: {
-                street: 'Electronic City',
-                zipCode: '560100',
-                country: 'India'
-            },
-            deliveryMethod: 'fastest'
+        // //alert('Continue!!!');
+        const queryParams = [];
+        for(let i in this.state.ingredients) {
+            queryParams.push(encodeURIComponent(i) + '=' + encodeURIComponent(this.state.ingredients[i]));
         }
-        
-        axios.post('/orders.json', orders)
-            .then(response =>{
-                console.log(response);
-                this.setState({loading: false, ordering: false});
-            })
-            .catch(errors => {
-                console.log(errors);
-                this.setState({loading: false, ordering: false});
-            })
+        queryParams.push('price=' + this.state.totalPrice);
+        const queryString = queryParams.join('&');
+        this.props.history.push({
+            pathname: '/checkout',
+            search: '?' + queryString
+        });
     }
 
     render(){
@@ -127,6 +115,7 @@ class BurgerBuilder extends Component {
         if(this.state.ingredients) {
             burger = (
                 <Aux>
+                <h1>My Burger <span role="img" aria-label="Delicious">&#128523;</span><span role="img" aria-label="Love">&#128525;</span></h1>
                     <Burger ingredients={this.state.ingredients}/>
                     <BuildControls 
                         ingredientAdded={this.addIngredientsHandler}
