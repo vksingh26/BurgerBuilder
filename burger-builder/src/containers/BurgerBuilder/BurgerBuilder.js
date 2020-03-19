@@ -115,7 +115,7 @@ class BurgerBuilder extends Component {
         if(this.state.ingredients) {
             burger = (
                 <Aux>
-                <h1>My Burger <span role="img" aria-label="Delicious">&#128523;</span><span role="img" aria-label="Love">&#128525;</span></h1>
+                <h1>Build My Burger <span role="img" aria-label="Delicious">&#128523;</span><span role="img" aria-label="Love">&#128525;</span></h1>
                     <Burger ingredients={this.state.ingredients}/>
                     <BuildControls 
                         ingredientAdded={this.addIngredientsHandler}
