@@ -9,7 +9,7 @@ import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 import Loading from '../../components/UI/Spinner/Spinner';
 import withErrorHandler from '../../hoc/withErrorHanlding/withErrorHandler'
 import axios from '../../axios-orders';
-import * as burgerBuilderActions from '../../store/actions/index';
+import * as actions from '../../store/actions/index';
 
 class BurgerBuilder extends Component {
 
@@ -44,6 +44,7 @@ class BurgerBuilder extends Component {
     }
 
     orderContinuedHandler = () => {
+        this.props.onInItPurchase();
         this.props.history.push('/checkout');
     }
 
@@ -94,17 +95,18 @@ class BurgerBuilder extends Component {
 
 const mapStateToProps = state => {
     return {
-        ings: state.ingredients,
-        price: state.totalPrice,
-        error: state.error
+        ings: state.burgerBuilder.ingredients, //here burgerBuilder is nothig but reducer, as we have combined multiple reducers
+        price: state.burgerBuilder.totalPrice,
+        error: state.burgerBuilder.error
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onIngedientsAdded: (ingName) => dispatch(burgerBuilderActions.addIngredient(ingName)),
-        onIngedientsRemoved: (ingName) => dispatch(burgerBuilderActions.removeIngredient(ingName)),
-        onInitIngredients: () => dispatch(burgerBuilderActions.initIngredients())
+        onIngedientsAdded: (ingName) => dispatch(actions.addIngredient(ingName)),
+        onIngedientsRemoved: (ingName) => dispatch(actions.removeIngredient(ingName)),
+        onInitIngredients: () => dispatch(actions.initIngredients()),
+        onInItPurchase: () => dispatch(actions.purchaseInIt())
     }
 }
 
