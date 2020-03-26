@@ -23,7 +23,7 @@ const store = createStore(rootReducers, composeEnhancers(
 
 const app = ( 
     <Provider store={store}>
-        <BrowserRouter>
+        <BrowserRouter basepath="/burger-builder/">
             <App />
         </BrowserRouter>
     </Provider>

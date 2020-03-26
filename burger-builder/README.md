@@ -66,3 +66,21 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+### 'Deployment of react-app on firebase server'
+Deploying React App to the web
+1. Check png (deployment_react_app) in react concept folder (for my reference)
+2. set basepath in index.js ---> inside BrowserRouter (<BrowserRouter basepath="/burgerbuilder/")
+3. run npm build which will give a build folder 
+4. npm install -g firebase-tools(we can use any like aws, docker, github etc for deployment) i have used firebase here
+5. firebase login
+6. Allow Firebase to collect CLI usage and error reporting information? Y/N (select yes)
+7. Run firebase init
+8. select Hosting: Configure and deploy Firebase Hosting sites from list of options
+9. Please select an option: Select Use an existing project from list of options
+10. What do you want to use as your public directory? build (enter build directory here as build directory contains our production ready project)
+11. Configure as a single-page app (rewrite all urls to /index.html)? Y/N (select Y)
+12. File build/index.html already exists. Overwrite? Y/N (select N) (let all the process finish)
+13. firebase deploy
+14: will get Hosting URL: https://burger-builder-369b1.firebaseapp.com
