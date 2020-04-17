@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter} from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
-import thunk from 'redux-thunk';
-
+import thunk from 'redux-thunk'; 
+// Redux thunk is a process which allows us to create actionCreaters where  we run the async code and then we dispatch other action once we are done
+//Similar to redux thunk one more is lib is there called redux saga
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
